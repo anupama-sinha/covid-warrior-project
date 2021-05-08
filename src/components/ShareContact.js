@@ -1,5 +1,6 @@
-import './App.css';
+import '../App.css';
 import React, { useReducer, useState } from 'react';
+import Countries from './Countries';
 
 const formReducer = (state, event) => {
   return {
@@ -74,7 +75,12 @@ export default function ShareContact() {
               <p>Address (Optional) : <span><input name="address" onChange={handleChange} /></span></p>
               <p>City/Town : <span><input name="city" onChange={handleChange} /></span></p>
               <p>State : <span><input name="state" onChange={handleChange} /></span></p>
-              <p>Country : <span><input name="country" onChange={handleChange} /></span></p>
+              <p>Country : 
+                <span>
+                  {/* <input name="country" onChange={handleChange} /> */}
+                  <Countries/>
+                </span>
+              </p>
             </div>
           </label>
         </fieldset>

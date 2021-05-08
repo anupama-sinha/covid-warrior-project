@@ -1,10 +1,10 @@
-import About from './About';
 import './App.css';
-import ShareContact from './ShareContact';
+import ShareContact from './components/ShareContact';
 import Navigation from './Navigation';
-import Dashboard from './Dashboard'
+import Dashboard from './components/Dashboard'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import ContactUs from './ContactUs';
+import ContactUs from './components/ContactUs';
+import About from './components/About';
 
 function App() {
   return (
@@ -18,7 +18,6 @@ function App() {
           <Route path="/shareContact" component={ShareContact} />
           <Route path="/contactUs" component={ContactUs} />
         </Switch>
-
       </div>
     </Router>
 
