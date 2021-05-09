@@ -27,3 +27,7 @@ target/
 .idea/
 node_modules/
 *yarn.lock*
+.classpath
+.factorypath
+.project
+.settings/
