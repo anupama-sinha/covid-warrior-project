@@ -1,6 +1,8 @@
 import '../App.css';
 import React, { useReducer, useState } from 'react';
-import Countries from './Countries';
+import District from './District';
+import ResourceType from './ResourceType';
+import State from './State';
 
 const formReducer = (state, event) => {
   return {
@@ -51,36 +53,16 @@ export default function ShareContact() {
         <fieldset>
           <label>
             <div className="contact">
-              <p>Contact Type :
+              <p>Resource Type :
                 <span>
-                  <select name="contactType" onChange={handleChange}>
-                    <option value="">--Please choose an option--</option>
-                    <option value="o2Cylinder">Oxygen Cylinder</option>
-                    <option value="o2Concentrator">Oxygen Concentrator</option>
-                    <option value="o2Refill">Oxygen Refill</option>
-                    <option value="o2Can">Oxygen Can</option>
-                    <option value="plasma">Plasma Donor</option>
-                    <option value="icuHospital">ICU Hospital</option>
-                    <option value="nonIcuHospital">Non-ICU Hospital</option>
-                    <option value="paidTiffinDelivery">Paid Tiffin Delivery</option>
-                    <option value="freeTiffinDelivery">Free Tiffin Delivery</option>
-                    <option value="doctor">OnCall Doctor Warrior</option>
-                    <option value="warrior">Covid Warrior</option>
-                  </select>
+                  <ResourceType/>
                 </span>
               </p>
-
-              <p>Name : <span><input name="name" onChange={handleChange} /></span></p>
-              <p>Mobile (Please separate each Mobile Numbers with Commas):<span><input name="mobile" onChange={handleChange} /></span></p>
-              <p>Address (Optional) : <span><input name="address" onChange={handleChange} /></span></p>
-              <p>City/Town : <span><input name="city" onChange={handleChange} /></span></p>
-              <p>State : <span><input name="state" onChange={handleChange} /></span></p>
-              <p>Country : 
-                <span>
-                  {/* <input name="country" onChange={handleChange} /> */}
-                  <Countries/>
-                </span>
-              </p>
+              <p>State : <span><State/></span></p>
+              <p>District : <span><District/></span></p>
+              <p>Contact Person : <span><input name="contactPerson" onChange={handleChange} /></span></p>
+              <p>Contact Number : <span><input name="contactNumber" onChange={handleChange} /></span></p>
+              <p>Additional Information : <span><input name="additionalInfo" onChange={handleChange} /></span></p>    
             </div>
           </label>
         </fieldset>
