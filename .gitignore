@@ -25,3 +25,5 @@ ui-services/package-lock.json
 
 target/
 .idea/
+node_modules/
+*yarn.lock*
