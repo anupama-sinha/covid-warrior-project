@@ -1,24 +1,27 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+/ui-services/node_modules
+/ui-services/.pnp
+/ui-services/.pnp.js
 
 # testing
-/coverage
+/ui-services/coverage
 
 # production
-/build
+/ui-services/build
 
 # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+/ui-services/.DS_Store
+/ui-services/.env.local
+/ui-services/.env.development.local
+/ui-services/.env.test.local
+/ui-services/.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-package-lock.json
+/ui-services/npm-debug.log*
+/ui-services/yarn-debug.log*
+/ui-services/yarn-error.log*
+ui-services/package-lock.json
+
+target/
+.idea/
