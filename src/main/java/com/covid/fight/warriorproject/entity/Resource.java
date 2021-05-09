@@ -1,7 +1,9 @@
 package com.covid.fight.warriorproject.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Table(name = "Resource")
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Resource {
 
     @Id
@@ -20,6 +24,8 @@ public class Resource {
     private District district;
 
     private State state;
+
+    private String contactPerson;
 
     private String contactNumber;
 
