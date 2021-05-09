@@ -748,4 +748,8 @@ public enum District {
     District(int stateCode){
         this.stateCode = stateCode;
     }
+
+    public int getStateCode() {
+        return this.stateCode;
+    }
 }
