@@ -31,9 +31,9 @@ export default class ResourceType extends Component {
 
   handleChange = (ev) => {
     const selectedResource = ev.target.value
-    //TODO : Pass this value to Dashboard Component
+    //Pass this value to ShareContact Component
     console.log("Resource Type Selected : ", selectedResource)
-   
+    this.props.onSelectResource({selectedRes : selectedResource})
   }
 
   handleKeyUp = (ev) => {
@@ -52,6 +52,10 @@ export default class ResourceType extends Component {
         names,
       }))
     ))
+  }
+
+  attachResType = (move) => {
+    this.props.sendResType(this.props.name, move);
   }
 
   render(){

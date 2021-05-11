@@ -14,6 +14,10 @@ const formReducer = (state, event) => {
 export default function ShareContact() {
   const [formData, setFormData] = useReducer(formReducer, {});
   const [submitting, setSubmitting] = useState(false);
+  const [resourceType, setResourceType] = useState('');
+  const [state, setState] = useState('');
+  const [district, setDistrict] = useState('');
+
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -24,6 +28,8 @@ export default function ShareContact() {
     }, 3000)
   }
 
+  let DistrictRender;
+
   const handleChange = event => {
     const isCheckbox = event.target.type === 'checkbox';
     setFormData({
@@ -32,8 +38,55 @@ export default function ShareContact() {
     });
   }
 
+  const handleResource = (res) => {
+    setResourceType(res.selectedRes);
+    console.log("Finally ::", res.selectedRes)
+    setFormData({
+      name: "resourceType",
+      value: res.selectedRes
+    });
+  }
+
+  const handleDistrict = (district) => {
+    setDistrict(district.selectedDist);
+    console.log("Finally ::", district.selectedDist)
+    setFormData({
+      name: "district",
+      value: district.selectedDist
+    });
+  }
+
+  const handleState = (state) => {
+    setState(state.selectedStat);
+    console.log("Finally ::", state.selectedStat)
+    setFormData({
+      name: "state",
+      value: state.selectedStat
+    });
+
+    
+    if (state.selectedStat !== '' || state.selectedStat !== null) {
+      <div>District :
+                <span>
+          DistrictRender = <District onSelectDistrict={handleDistrict} state={state.selectedStat} />
+        </span>
+      </div>
+  }
+
+  // const DistrictRender = function () {
+  //   let DistrictRender;
+  //   console.log("sts::", this.state)
+  //   if (this.state.state !== '' || this.state.state !== null) {
+  //     <div>District :
+  //               <span>
+  //         DistrictRender = <District onSelectDistrict={handleDistrict} state={state} />
+  //       </span>
+  //     </div>
+  //   }
+
+  }
+
   return (
-    // <div className="share-contact">
     <div style={{ border: '7px ridge red', width: '1425px', padding: '10px', float: 'left', marginLeft: "2%", textAlign: 'left' }}>
 
       <h1>Please share Contact Details here</h1>
@@ -55,14 +108,14 @@ export default function ShareContact() {
             <div className="contact">
               <p>Resource Type :
                 <span>
-                  <ResourceType/>
+                  <ResourceType onSelectResource={handleResource} />
                 </span>
               </p>
-              <p>State : <span><State/></span></p>
-              <p>District : <span><District/></span></p>
+              <p>State : <span><State onSelectState={handleState} /></span></p>
+              {DistrictRender}
               <p>Contact Person : <span><input name="contactPerson" onChange={handleChange} /></span></p>
               <p>Contact Number : <span><input name="contactNumber" onChange={handleChange} /></span></p>
-              <p>Additional Information : <span><input name="additionalInfo" onChange={handleChange} /></span></p>    
+              <p>Additional Information : <span><input name="additionalInfo" onChange={handleChange} /></span></p>
             </div>
           </label>
         </fieldset>

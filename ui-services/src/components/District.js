@@ -4,6 +4,7 @@ import axios from 'axios'
 import { DropBox } from './Dropbox'
 
 const END_POINTS = {
+  
    ALL_RESOURCE_TYPE_API: 'http://localhost:8080/district/Jharkhand'
 }
 
@@ -17,6 +18,7 @@ export default class District extends Component {
       
     }))
     try{
+      console.log("state in district : ",this.props.state);
       const response = await axios.get(END_POINT,
         {
           header:
@@ -30,10 +32,10 @@ export default class District extends Component {
   };
 
   handleChange = (ev) => {
-    const selectedResource = ev.target.value
-    //TODO : Pass this value to Dashboard Component
-    console.log("Resource Type Selected : ", selectedResource)
-   
+    const selectedDistrict = ev.target.value
+    //Pass this value to ShareContact Component
+    console.log("Resource Type Selected : ", selectedDistrict)
+    this.props.onSelectDistrict({selectedDist : selectedDistrict})
   }
 
   handleKeyUp = (ev) => {

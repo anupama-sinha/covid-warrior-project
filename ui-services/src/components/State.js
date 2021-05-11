@@ -30,9 +30,10 @@ export default class State extends Component {
   };
 
   handleChange = (ev) => {
-    const selectedResource = ev.target.value
-    //TODO : Pass this value to Dashboard Component
-    console.log("Resource Type Selected : ", selectedResource)
+    const selectedState = ev.target.value
+    //Pass this value to ShareContact Component
+    console.log("Resource Type Selected : ", selectedState)
+    this.props.onSelectState({selectedStat : selectedState})
    
   }
 
